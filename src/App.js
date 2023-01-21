@@ -4,6 +4,37 @@ import React from 'react';
 import Element from './components/element';
 
 function App() {
+  const[text, setText] = useState();
+  const[arr, setArr] = useState([]);
+  const[popEle, setPopELe] = useState('');
+  const[topELe, setTopEle] = useState('');
+
+  const handleInput = (e) => {
+    setText(e.target.value);
+  }
+
+  const handlePush = () => {
+    setArr(text, [...arr])
+  }
+
+  const handlePop = () => {
+    if (arr.length == 0) {
+      window.alert('Stack is empty')
+    }
+    else{
+      setPopEle(arr.shift())
+    }
+  }
+
+  const handleTop = () => {
+    if (arr.length == 0) {
+      window.alert('Stack is empty')
+    }
+    else{
+      setTopEle(arr.shift())
+    }
+  }
+  
   return (
     <div className="container">
       <h1 className="header">Stack</h1>
